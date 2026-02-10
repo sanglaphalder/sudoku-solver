@@ -1,16 +1,31 @@
-# React + Vite
+# 🧩 Modern Sudoku Solver
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A high-performance Sudoku solver built with **React** and **Tailwind CSS**, powered by a robust **Backtracking Algorithm** originally developed in C++.
 
-Currently, two official plugins are available:
+![Sudoku Solver Preview](https://via.placeholder.com/800x400?text=Sudoku+Solver+Interface+Preview)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+- **C++ Logic in Web:** Features a direct port of a high-efficiency C++ backtracking algorithm.
+- **Two-Step Validation:** - **Pre-Check:** Validates the initial board state for Sudoku rule violations (duplicates in rows/cols/subgrids).
+  - **Recursive Solver:** Finds the solution using an optimized depth-first search.
+- **Modern UI:** Built with React and styled with Tailwind CSS for a sleek, responsive experience.
+- **Visual 3x3 Grid:** Clearly defined subgrids for better readability, just like a real Sudoku puzzle.
+- **Dynamic Feedback:** Color-coded status messages for "Solved", "Invalid Input", and "No Solution".
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+- **Frontend:** React.js
+- **Styling:** Tailwind CSS
+- **Algorithm:** Backtracking (Recursive DFS)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🧠 How the Algorithm Works
+
+The solver uses a classic backtracking approach, which can be visualized as a decision tree:
+
+1. **Find** the next empty cell `(r, c)`.
+2. **Try** placing digits 1-9 in that cell.
+3. **Validate** if the digit follows Sudoku rules (using `isValidPlacement`).
+4. **Recursive Step:** Move to the next cell.
+5. **Backtrack:** If a digit leads to an impossible state, the algorithm removes it and tries the next number.
+
